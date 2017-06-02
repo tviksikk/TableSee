@@ -6,19 +6,26 @@ using namespace std;
 
 void main()
 {
-	table<int,unsigned char> v(9);
 
-	setlocale(LC_ALL, "Russian");
-	v.add(2, 'à');
-	v.add(1, 'á');
-	v.add(3, 'ñ');
+	int **dMass = new int*[3];
+	for (int i = 0; i < 3; i++)
+	{
+		dMass[i] = new int[2];
+	}
+	dMass[0][0] = 15;
+	dMass[0][1] = 31321;
+	dMass[1][0] = 305;
+	dMass[1][1] = 321;
+	dMass[2][0] = 1;
+	dMass[2][1] = 0;
 
-	cout << v[2] << endl;
+
+	table<int,int> v(dMass,3);
+
+	cout << v[15] << endl;
+	cout << v[305] << endl;
 	cout << v[1] << endl;
-	cout << v[3] << endl;
 
-	v.resize(6);
-	
 	
 	cin.get();
 }

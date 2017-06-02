@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-template<class K, class V>
+template<class K = int, class V=int>
 class table
 {
 private:
@@ -11,6 +11,7 @@ private:
 
 public:
 	table(int size);
+	table(int **arr, int size);
 	~table();
 
 	void add(K k, V v);
@@ -32,6 +33,23 @@ table<K,V>::table(int size)
 	}
 	vvvvvv = new V[size];
 	used = 0;
+}
+
+template<class K, class V>
+table<K, V>::table(int ** arr,int size)
+{
+	this->size = size;
+	kkkkkk = new K[size];
+	vvvvvv = new V[size];
+	used = 0;
+	for (size_t i = 0; i < size; i++)
+	{
+		kkkkkk[i] = K();
+	}
+	for (int i = 0; i < size; i++)
+	{
+		add(arr[i][0], arr[i][1]);
+	}
 }
 
 template<class K, class V>
